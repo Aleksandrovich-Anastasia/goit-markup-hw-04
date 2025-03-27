@@ -36,6 +36,8 @@ img {
 /* -----------------HEADER------------------- */
 .header {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 .header .container {
   display: flex;
@@ -55,11 +57,11 @@ img {
   text-transform: uppercase;
   color: #4d5ae5;
   flex-basis: 115px;
-  margin-right: 76px;
 }
 
 .header-logo .logo-part {
   color: #2e2f42;
+  margin-right: 76px;
 }
 
 .nav-list {
@@ -78,8 +80,23 @@ img {
   letter-spacing: 0.02em;
   color: #2e2f42;
   padding: 24px 0;
+  display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.nav-link.current {
+  position: relative;
+}
+.nav-link.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
+}
 .nav-link:hover,
 .nav-link:focus {
   color: #404bbf;
@@ -103,9 +120,11 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .add-link:hover,
-.add-link:focus {
+.add-link:focus,
+.nav-link.current {
   color: #404bbf;
 }
 
@@ -114,13 +133,22 @@ img {
   background-color: #2e2f42;
   padding-top: 188px;
   padding-bottom: 188px;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office\ 1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .section-hello .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 .page-title {
   font-size: 56px;
@@ -130,7 +158,6 @@ img {
   color: #fff;
   margin: 0 auto;
   margin-bottom: 48px;
-  max-width: 496px;
 }
 
 .page-btn {
@@ -147,6 +174,7 @@ img {
   margin: 0 auto;
   display: block;
   min-width: 169px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .page-btn:hover,
 .page-btn:focus {
@@ -178,6 +206,17 @@ img {
 
 .principles-item {
   flex-basis: calc((100% - 72px) / 4);
+}
+.container-icon {
+  display: flex;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  background-color: #f4f4fd;
+  width: 100%;
+  height: 112px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
 .name {
@@ -227,6 +266,33 @@ img {
 .team-name {
   padding: 32px 0;
   text-align: center;
+  max-width: 232px;
+  justify-items: center;
+  margin: 0 auto;
+}
+.soc-icon-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+  width: 100%;
+}
+.soc-icon-linc {
+  display: flex;
+  border-radius: 50%;
+  fill: #fff;
+  background-color: #4d5ae5;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.soc-icon-linc:hover,
+.soc-icon-linc:focus {
+  background-color: #404bbf;
+}
+.soc-icon {
 }
 
 /* -----------------PORTFOLIO------------------- */
@@ -251,12 +317,41 @@ img {
   max-width: 360px;
   width: calc((100% - 48px) / 3);
 }
+.portfolio-item:hover,
+.portfolio-item:focus {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+.portfolio-item:hover .overlay,
+.portfolio-item:focus .overlay {
+  transform: translateY(0);
+}
+.tumba {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(101%);
+  color: #f4f4fd;
+  background-color: #4d5ae5;
+  padding: 40px 32px;
+  transition: transform 250ms ease-in-out;
+}
 
 /* -----------------FOOTER------------------- */
 .page-footer {
   background-color: #2e2f42;
   padding-top: 100px;
   padding-bottom: 100px;
+}
+.page-footer .container {
+  display: flex;
+  gap: 120px;
 }
 .footer-text {
   color: #f4f4fd;
@@ -268,4 +363,18 @@ img {
 .footer-logo {
   display: inline-block;
   margin-bottom: 16px;
+}
+.footer-soc {
+  width: 208px;
+}
+.footer-soc .text .footer-text {
+  font-weight: 500;
+  color: #fff;
+}
+.footer-soc .soc-icon-list {
+  width: 100%;
+}
+.footer-soc .soc-icon-linc:hover,
+.footer-soc .soc-icon-linc:focus {
+  background-color: #31d0aa;
 }
