@@ -139,7 +139,7 @@ img {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(./images/people-office.jpg);
+    url(../images/people-office.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -270,11 +270,13 @@ img {
   justify-items: center;
   margin: 0 auto;
 }
+.team-name .text {
+  margin-bottom: 8px;
+}
 .soc-icon-list {
   display: flex;
   justify-content: center;
   gap: 24px;
-  margin-top: 20px;
   align-items: center;
   width: 100%;
 }
